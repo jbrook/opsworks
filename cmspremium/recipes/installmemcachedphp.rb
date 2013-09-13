@@ -1,4 +1,8 @@
-package "php5-memcache" do
+package "php-pear" do
+    action :install
+end
+
+package "php-pecl-memcache" do
     action :install
 end
 
