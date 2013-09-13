@@ -1,0 +1,1 @@
+default[:cmspremium][:test][:first] = 'First Test'
