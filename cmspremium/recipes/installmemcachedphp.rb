@@ -3,6 +3,7 @@ package "php-pear" do
 end
 
 package "php-pecl-memcache" do
+    options("-y")
     action :install
 end
 
