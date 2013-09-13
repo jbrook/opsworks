@@ -1,10 +1,5 @@
-package "php-pear" do
-    action :install
-end
-
 package "php-pecl-memcache" do
-    options("-y")
-    action :install
+    action :remove
 end
 
 include_recipe 'apache2::service'
@@ -12,4 +7,3 @@ include_recipe 'apache2::service'
 service "apache2" do
     action :stop
 end
-
