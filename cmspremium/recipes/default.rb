@@ -1,4 +1,4 @@
-template "#/tmp/#test.txt" do
+template "/tmp/test.txt" do
   
   owner 'root'
   group 'root'
