@@ -1,5 +1,21 @@
 node[:deploy].each do |app_name, deploy|
 
+  # create production .htaccess file
+  template "#{deploy[:deploy_to]}/current/.htaccess" do
+    source "htaccess.erb"
+    mode 0644
+    group deploy[:group]
+    owner "apache"
+    
+    variables(
+      :env =>    (node[:metasearch][:env] rescue nil)
+    )
+
+   only_if do
+     File.directory?("#{deploy[:deploy_to]}/current")
+   end
+  end
+  
   # create proper folders if not exist
   directory "#{deploy[:deploy_to]}/current/core/cache" do
     group deploy[:group]
@@ -10,7 +26,7 @@ node[:deploy].each do |app_name, deploy|
       File.directory?("#{deploy[:deploy_to]}/current")
     end
   end
-
+  
   directory "#{deploy[:deploy_to]}/current/core/cache/zend" do
     group deploy[:group]
     owner "apache"
