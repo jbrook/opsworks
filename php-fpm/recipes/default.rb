@@ -9,6 +9,8 @@ template node['php-fpm']['conf_file'] do
   group "root"
 end
 
+php_fpm_service_name = "php-fpm"
+
 node['php-fpm']['pools'].each do |pool|
   fpm_pool pool do
     php_fpm_service_name php_fpm_service_name
