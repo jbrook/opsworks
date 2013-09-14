@@ -1,3 +1,5 @@
+include_recipe 'deploy'
+
 directory "#{deploy[:deploy_to]}/current/core/cache" do
     group deploy[:group]
     owner "apache"
